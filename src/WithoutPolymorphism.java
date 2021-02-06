@@ -37,15 +37,16 @@ class ControlRoom{
         }
     }
 }
+
 class Demo{
     public static void main(String args[]){
         ControlRoom controlRoom=new ControlRoom();
-        controlRoom.addAlarm(new Alarm("One"));
-        controlRoom.addAlarm(new Alarm("Two"));
-        controlRoom.addAlarm(new Alarm("Three"));
-        controlRoom.addDisplay(new Display());
-        controlRoom.addSMSSender(new SMSSender());
-        controlRoom.addSplitter(new Splitter());
+        controlRoom.addAlarm(new Alarm("AOne"));
+        controlRoom.addAlarm(new Alarm("ATwo"));
+        controlRoom.addAlarm(new Alarm("AThree"));
+        controlRoom.addDisplay(new Display("DOne"));
+        controlRoom.addSMSSender(new SMSSender("SMSOne"));
+        controlRoom.addSplitter(new Splitter("SOne"));
         Random r=new Random();
         while(true){
             int rand=r.nextInt(101); //0 to 100
@@ -55,9 +56,3 @@ class Demo{
     }
 }
 
-
-class Demo1{
-    public static void main(String[] args) {
-
-    }
-}

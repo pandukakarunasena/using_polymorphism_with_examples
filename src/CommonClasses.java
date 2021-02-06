@@ -1,18 +1,20 @@
 abstract class WaterLevelObserver{
     abstract void update(int waterLevel);
+    public abstract String getName();
 }
 
 class Alarm extends WaterLevelObserver{
-    private int id;
 
     //naming the equipments to further procedures. this can be removed if naming a equipment is not needed.
-    Alarm(int id){
-        this.id = id;
-    }
+    private String name;
 
-    private String  name;
+
     Alarm(String name){
         this.name=name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void operateAlarm(int waterLevel){
@@ -25,6 +27,16 @@ class Alarm extends WaterLevelObserver{
 }
 
 class Display extends WaterLevelObserver{
+    private String name;
+
+    Display(String name){
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void update(int waterLevel){
         System.out.println("Water Level : "+waterLevel);
     }
@@ -36,6 +48,18 @@ class Display extends WaterLevelObserver{
 }
 
 class SMSSender  extends WaterLevelObserver{
+
+    private String name;
+
+    SMSSender(String name){
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
     public void update(int waterLevel){
         System.out.println("Sending Water Level : "+waterLevel);
     }
@@ -46,6 +70,18 @@ class SMSSender  extends WaterLevelObserver{
 }
 
 class Splitter extends WaterLevelObserver{
+
+    private String name;
+
+    Splitter(String name){
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
     public void update(int waterLevel){
         System.out.println(waterLevel>=75 ? "Splitter ON":"Splitter OFF");
     }
